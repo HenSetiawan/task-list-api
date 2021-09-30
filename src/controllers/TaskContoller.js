@@ -28,3 +28,21 @@ exports.getAllTask = async (req, res) => {
     res.json({ error: error });
   }
 };
+
+exports.deleteTask = async (req, res) => {
+  const idTask = req.params.idTask;
+  console.log(idTask);
+  try {
+    const result = await Task.findByIdAndDelete(idTask);
+    if (result) {
+      res.json({ message: "success delete task", result: result });
+    } else {
+    }
+  } catch (error) {
+    console.error(error);
+    res.json({
+      message: `task with id ${idTask} not found`,
+      error: error.message,
+    });
+  }
+};
