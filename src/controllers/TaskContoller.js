@@ -11,7 +11,7 @@ exports.addTask = async (req, res) => {
       url,
     });
     const result = await task.save();
-    res.json({ result });
+    res.json({ message: "success add new task", data: result });
   } catch (error) {
     res.json({ error: error });
   }

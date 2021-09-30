@@ -32,7 +32,12 @@ exports.loginUser = async (req, res) => {
       jwt.sign({ user_id: user.id }, privateKey, (err, token) => {
         res.json({
           message: "login success",
-          user,
+          user: {
+            user_id: user.id,
+            username: user.username,
+            user_role: user.role,
+            email: user.email,
+          },
           token: token,
         });
       });
