@@ -9,6 +9,7 @@
     "mongoose": "^6.0.8"
   },
   "scripts": {
-    "dev": "nodemon app"
+    "dev": "nodemon app",
+    "start": "node app.js"
   }
 }
