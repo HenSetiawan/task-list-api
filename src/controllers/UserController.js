@@ -31,6 +31,7 @@ exports.loginUser = async (req, res) => {
     if (isPasswordCorrect) {
       jwt.sign({ user_id: user.id }, privateKey, (err, token) => {
         res.json({
+          message: "login success",
           user,
           token: token,
         });
