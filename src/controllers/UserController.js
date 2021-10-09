@@ -48,3 +48,19 @@ exports.loginUser = async (req, res) => {
     res.json({ message: "username or password is incorrect" });
   }
 };
+
+exports.getUserData = async (req, res) => {
+  const userId = req.user.id;
+  try {
+    user = await User.findById(userId);
+    res.json({
+      message: "login success",
+      user: {
+        user_id: user.id,
+        username: user.username,
+        user_role: user.role,
+        email: user.email,
+      },
+    });
+  } catch (error) {}
+};
